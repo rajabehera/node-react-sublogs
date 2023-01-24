@@ -17,7 +17,7 @@ const app = express();
 //   app.use(cors({
 //     origin: 'http://192.168.1.131:5000'
 // }));
-
+const { createProxyMiddleware } = require('http-proxy-middleware');
 app.use('/api', createProxyMiddleware({ 
   target: 'http://192.168.1.131:8080/', //original url
   changeOrigin: true, 
