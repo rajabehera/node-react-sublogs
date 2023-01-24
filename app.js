@@ -9,7 +9,7 @@ const path = require('path');
 
 const app = express();
 // var corsOptions = {
-//     //  origin: "http://128.199.20.72/"
+//     //  origin: "http://192.168.1.131/"
 //         origin: "http://localhost:3000/"
 //   };
   
