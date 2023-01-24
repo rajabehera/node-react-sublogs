@@ -13,8 +13,10 @@ const app = express();
 //         origin: "http://localhost:3000/"
 //   };
   
-  app.use(cors());
-
+  //app.use(cors());
+  app.use(cors({
+    origin: 'http://192.168.1.131:5000'
+}));
 const userRouter = require("./api/users/user.router");
 const newsRouter = require("./api/news/news.router");
 
