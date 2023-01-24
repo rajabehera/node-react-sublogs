@@ -14,9 +14,21 @@ const app = express();
 //   };
   
   //app.use(cors());
-  app.use(cors({
-    origin: 'http://192.168.1.131:5000'
+//   app.use(cors({
+//     origin: 'http://192.168.1.131:5000'
+// }));
+
+app.use('/api', createProxyMiddleware({ 
+  target: 'http://192.168.1.131:8080/', //original url
+  changeOrigin: true, 
+  //secure: false,
+  onProxyRes: function (proxyRes, req, res) {
+     proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+  }
 }));
+
+
+
 const userRouter = require("./api/users/user.router");
 const newsRouter = require("./api/news/news.router");
 
